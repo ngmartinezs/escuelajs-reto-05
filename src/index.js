@@ -1,9 +1,8 @@
-
 localStorage.clear(); 
 const MESSAGE_END_CONTENT ="Ya no hay personajes";
 const $app = document.getElementById('app');
 const $observe = document.getElementById('observe');
-//const API = 'https://randomuser.me/api/?results=50';//'https://rickadmortyapi.com/api/character/';
+//const API = 'https://rickadmortyapi.com/api/characters';
 const API = 'https://us-central1-escuelajs-api.cloudfunctions.net/characters';
 
 const getData = api => {
@@ -27,7 +26,6 @@ const getData = api => {
       newItem.innerHTML = output;
       $app.appendChild(newItem);
 
-      console.log(`nextFetch => ${nextFetch}`);
       if(nextFetch)
       {
         localStorage.setItem("next_fetch",nextFetch);
@@ -43,7 +41,6 @@ const getData = api => {
     })
     .catch(error => console.log(error));
 }
-
  const loadData = async () => {
   let lApi = API;
   const urlNextFetch = localStorage.getItem("next_fetch");
